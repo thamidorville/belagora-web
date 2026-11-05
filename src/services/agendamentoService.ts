@@ -26,6 +26,11 @@ export async function listarMeusAgendamentosGestor(): Promise<Agendamento[]> {
   return response.data;
 }
 
+export async function listarMinhaAgendaFuncionario(): Promise<Agendamento[]> {
+  const response = await api.get('/agendamento/meus-agendamentos-funcionario');
+  return response.data;
+}
+
 export async function cancelarAgendamentoGestor(id: string, motivo: string): Promise<void> {
   await api.patch(`/agendamento/${id}/cancelar-gestor`, { motivo });
 }
